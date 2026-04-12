@@ -83,7 +83,7 @@ def apply_all_parsers(
                 starts_in_thinking=detect_thinking_prompt_suffix(prompt, tokenizer),
             )
 
-        if tool_parser:
+        if tool_parser and tools:
             mlx_generator = parse_tool_calls(mlx_generator, tool_parser, tools)
 
     return count_reasoning_tokens(mlx_generator)
